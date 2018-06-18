@@ -1,0 +1,31 @@
+{{template "header"}}
+{{template "navbar"}}
+<form action="/users/search" method="post" class="form-inline">
+    <div class="form-group">
+        <div class="input-group">
+            <input type="search" name="name" size="30" placeholder="Search" required class="form-control">
+            <div class="input-group-btn">
+                <input type="submit" value="検索" class="btn btn-primary">
+            </div>
+        </div>
+    </div>
+</form>
+    <table class="table table-borderless table-striped">
+        <tr class="table-primary">
+            <th>氏名</th>
+            <th>Eメール</th>
+            <th>Uid</th>
+        </tr>
+    {{range .users}}
+        <tr>
+            <td><a href="/users/edit/{{.ID}}">{{.Name}}</a></td>
+            <td>{{.Email}}</td>
+            <td>{{.Uuid}}</td>
+        </tr>
+    {{end}}
+    </table>
+        {{/*{{if .session}}*/}}
+                {{.session}}
+        {{/*{{end}}*/}}
+{{template "sidebar"}}
+{{template "footer"}}

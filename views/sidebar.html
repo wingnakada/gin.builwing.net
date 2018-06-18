@@ -1,0 +1,31 @@
+{{define "sidebar"}}
+</div>
+        <div class="col-xs-8 col-sm-4 col-md-3  sidebar-offcanvas" role="navigation">
+            <div id="sidebar" data-spy="affix" data-offset-top="70">
+                <div class="panel panel-default">
+                    <div class="panel-heading">ユーザー情報</div>
+                    <div class="list-group">
+                        <a href="/users" class="list-group-item active">一覧</a>
+                        <a href="/users/create" class="list-group-item">作成</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="/users/trashed" class="list-group-item">削除データ一覧</a>
+                    </div>
+                    <div class="panel-footer">Panel footer</div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Panel heading without title</div>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="#" class="list-group-item">Link</a>
+                        <a href="/signin" class="list-group-item">ログイン</a>
+                        <a href="/signout" class="list-group-item">ログアウト</a>
+                    </div>
+                    <div class="panel-footer">Panel footer</div>
+                </div>
+            </div><!--/.sidebar-offcanvas-->
+        </div><!--/.sidebar-offcanvas-->
+    </div><!--/row-->
+</div>
+{{end}}

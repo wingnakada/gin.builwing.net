@@ -1,0 +1,91 @@
+{{template "header"}}
+    {{template "navbar"}}
+    <div class="jumbotron">
+        <div class="container">
+        {{if .DeletedAt}}
+            <form action="/users/restore" method="post">
+                <h2>{{.Name}}のデータ処理</h2>
+                <input type="hidden" name="id" value="{{.ID}}">
+                <input type="submit" value="復元" class="btn btn-success col-sm-3">
+                <a data-target="#force-delete" data-toggle="modal" class="btn btn-danger col-sm-3">完全削除</a>
+            </form>
+        {{else}}
+            <form action="/users/edit" method="post" class="form-horizontal">
+            <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">氏名</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="name" size="30" required class="form-control" value="{{.Name}}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">読み</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="yomi" size="30" required class="form-control" value="{{.Yomi}}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3">Eメール</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="email" size="30" required class="form-control col-sm-8" value="{{.Email}}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3">ロール</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="role" size="30" class="form-control col-sm-8" value="{{.Role}}">
+                    </div>
+                </div>
+                <input type="hidden" name="id" value="{{.ID}}">
+                <input type="submit" value="修正" class="btn btn-success col-sm-3">
+                <a data-target="#delete" data-toggle="modal" class="btn btn-warning col-sm-3">削除</a>
+            </form>
+            {{end}}
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="delete">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{.Name}}の削除</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>本当にこのデータを削除してもいいですか。</p>
+                </div>
+                <form action="/users/delete" method="post">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
+                        <input type="hidden" name="id" value="{{.ID}}">
+                        <input type="submit" class="btn btn-danger" value="データの削除">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="force-delete">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">{{.Name}}の完全削除</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>本当にこのデータを削除してもいいですか。</p>
+                    <p>この処理を行うとデータは2度と復元できません。</p>
+                </div>
+                <form action="/users/forcedelete" method="post">
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">キャンセル</button>
+                        <input type="hidden" name="id" value="{{.ID}}">
+                        <input type="submit" class="btn btn-danger" value="データの完全削除">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{{template "sidebar"}}
+{{template "footer"}}

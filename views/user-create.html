@@ -1,0 +1,55 @@
+{{template "header"}}
+    {{template "navbar"}}
+    <div class="jumbotron">
+        <div class="container">
+            <form action="/users/create" method="post" class="form-horizontal">
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">氏名</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="name" size="30" required class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">読み</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="yomi" size="30" required class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3">Eメール</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="email" size="30" required class="form-control col-sm-8">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3">パスワード</label>
+                    <div class="col-sm-9">
+                        <input type="password" name="password" size="30" required class="form-control col-sm-8">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-3">ロール</label>
+                    <div class="col-sm-9">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="role" value="admin" class="form-control">Admin
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="role" value="user" class="form-control">User
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="role" value="guest" class="form-control" checked>Guest
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" value="作成" class="btn btn-primary col-sm-3">
+            </form>
+        </div>
+    </div>
+{{template "sidebar"}}
+{{template "footer"}}

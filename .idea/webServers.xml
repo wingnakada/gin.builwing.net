@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="6e24bcbe-e5f3-4d7f-8539-a2643538adf6" name="gin.builwing.net" url="http://gin.builwing.net">
+        <fileTransfer host="133.130.121.199" port="22" privateKey="$USER_HOME$/.ssh/conoha/id_rsa" rootFolder="/home/hide/go/src/gin" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
