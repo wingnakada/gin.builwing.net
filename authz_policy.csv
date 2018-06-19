@@ -1,5 +1,6 @@
 p, admin, *, *
 p, user, /users/*, *
+p, user, /*, *
 p, guest, /users/*, GET
 p, alice, /dataset1/resource1, POST
 p, bob, /dataset2/resource1, *
